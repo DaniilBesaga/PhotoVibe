@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        .section {
+            position: fixed;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999999999;
+        }
+
+            .section > div {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 25px;
+                background-color: white;
+                width: 450px;
+            }
+
+                .section > div > div:first-of-type {
+                    display: flex;
+                }
+
+                    .section > div > div:first-of-type > p {
+                        font-size: 20px;
+                        font-family: Helvetica;
+                    }
+
+                    .section > div > div:first-of-type > a {
+                        text-align: start;
+                        font-size: 20px;
+                        border: 0 !important;
+                        text-decoration: none !important;
+                        cursor: pointer;
+                        position: relative;
+                        top: -20px;
+                        left: 15px;
+                    }
+
+                .section > div > div:last-of-type {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 10px;
+                    gap: 15px;
+                }
+
+                    .section > div > div:last-of-type > a {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        width: 100%;
+                        padding: 10px 0px 10px 0px;
+                        cursor: pointer;
+                        font-size: 18px;
+                        text-align: center;
+                    }
+
+                        .section > div > div:last-of-type > a:first-of-type {
+                            border: 1px solid #2e9cc1;
+                            color: #2e9cc1;
+                        }
+
+                .section > div > div > a:last-of-type {
+                    border: 1px solid black;
+                    color: black;
+                }
+    </style>
+    </head>
+<body>
+    <section class="section">
+        <div>
+            <div>
+                <p>In order to save these photos, you need to be logged into your Photocase account.</p>
+                <a>X</a>
+            </div>
+            <div>
+                <a>Login</a>
+                <a>Register</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector("a").addEventListener("click", function(){document.querySelector(".section").style.display = "none"});
+    </script>
+</body>
+</html>

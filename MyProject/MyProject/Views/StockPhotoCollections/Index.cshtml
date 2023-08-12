@@ -1,0 +1,251 @@
+﻿@model IEnumerable<MyProject.Models.StockPhotoColletions>
+@using System.Text;
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="~/css/ProductPageStyle.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    <section class="photo-section">
+        <div>
+            <img src="@Model.Select(a=>a.stockPhotos.Url).ToList().ElementAt(0)" />
+        </div>
+        <div>
+            <div>
+                <p>@Model.Select(a=>a.stockPhotos.MainText).ToList().ElementAt(0)<span>@Model.Select(a=>a.stockPhotos.SecondaryText).ToList().ElementAt(0)</span></p>
+            </div>
+            <p>
+                @Model.Select(a=>a.Title).ToList().ElementAt(0)
+            </p>
+        </div>
+        @functions
+        {
+            public string FillWithImgs(int index)
+            {
+                StringBuilder result = new StringBuilder();
+                int count1 = Model.Select(a => a.Urls).ToList().ElementAt(0).ToList().Count;
+                List<string> L1 = new List<string>();
+                int number = index == 1 ? (count1 / 3) + (count1 % 3) : count1 / 3;
+                int iter = count1 % 3;
+
+                int u = 0;
+                switch (index)
+                {
+                    case 1:
+                        u = 0;
+                        break;
+                    case 2:
+                        u = number + iter;
+                        break;
+                    case 3:
+                        u = number * 2 + iter;
+                        break;
+                }
+                L1 = Model.Select(a => a.Urls).ToList().ElementAt(0).ToList().Skip(u).Take(number).ToList();
+                for(int i = 0;i<L1.Count;i++)
+                {
+                    result.Append("<div>");
+                    result.Append("<img src=\"" + L1.ElementAt(i) + "\">");
+                    result.Append("<div class=\"buttons\">");
+                    result.Append("<button id=\"cart\">");
+                    result.Append("<i class=\"ri-shopping-cart-2-line\"></i>");
+                    result.Append("</button>");
+                    result.Append("<button style=\"background-color: greenyellow\">");
+                    result.Append("<i class=\"ri-pushpin-line\"></i>");
+                    result.Append("</button>");
+                    result.Append("<button style=\"background-color: mediumpurple \">");
+                    result.Append("<i class=\"ri-equal-fill\"></i>");
+                    result.Append("</button>");
+                    result.Append("</div>");
+                    result.Append("</div>");
+                }
+
+                return result.ToString();
+            }
+        }
+        <div class="imgs-row">
+            <div class="imgs-column">
+                @Html.Raw(FillWithImgs(1))
+            </div>
+            <div class="imgs-column">
+                @Html.Raw(FillWithImgs(2))
+            </div>
+            <div class="imgs-column">
+                @Html.Raw(FillWithImgs(3))
+            </div>
+        </div>
+      
+    </section>
+    <div class="added">
+        <img/>
+        <p>Added to <a>cart</a></p>
+    </div>
+    <div class="item">
+        
+    </div>
+    <div class="lightbox">
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+           let bts = document.querySelectorAll(".buttons > button:first-of-type");
+           for(let i = 0;i<3;i++)
+           {
+            bts[i].addEventListener("click", function () {
+                
+                var img = document.querySelectorAll('.imgs-column img');
+                $.ajax({
+                    type: "get",
+                    url: '/Cart/AddingToCart',
+                    data: { url: img[i].src },
+                    success: function (response) {
+                        if (response) {
+                            let b = document.getElementsByClassName("added")[0];
+                            b.style.visibility = "visible";
+                            b.style.marginBottom = "20px";
+                            b.querySelector("img").src = img[i].src;
+                            
+                        }
+                    }
+
+                });
+                //fetch(`/Cart/GetSpan`, {
+                //    method: 'PUT',
+                //    headers: {
+                //        'Content-type': 'applicaton/json',
+                //    },
+                //    body: JSON.stringify({
+                //        I:i
+                //    })
+                //}).then(function (response) {
+                //    if (response.ok) {
+                //        console.log("Ok");
+                //    }
+                //});
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("ReloadEvents", "Cart")',
+                    data: { added:true},
+                    success:function (data)
+                    {
+                        $(".number").html(data);
+                    }
+                    
+                });
+               
+            setTimeout(function () {
+                    let b = document.getElementsByClassName("added")[0];
+                b.style.marginBottom = "-40px";
+                b.style.visibility = "hidden";
+            }, 3000);
+        });
+
+        let imgs = document.querySelectorAll(".imgs-column img");
+        console.log(imgs.length);
+        for(let i = 0;i<imgs.length;i++)
+        {
+            let id = 2;
+            imgs[i].addEventListener("click", function(){
+                    $.ajax({
+                        type: "get",
+                        url: '@Url.Action("ShowOverlay", "Cart")',
+                        data: {},
+                        success: function (data) {
+                            $(".item").html(data);
+                            console.log(document.querySelector(".item"));
+
+                            // Выполнение второго запроса после завершения первого запроса
+                            $.ajax({
+                                type: "get",
+                                url: '/Cart/GetOverlayData',
+                                data: { url: imgs[i].src },
+                                success: function (data) {
+                                    console.log(document.querySelector(".item"));
+                                    var e = data.replace(/&quot;/g, '"').replace(/&#xD;/g, '\r').replace(/&#xA;/g, '\n');
+                                    e = e.replace(/&#xD;/g, '\r').replace(/&#xA;/g, '\n');
+                                    var json = JSON.parse(e);
+                                    console.log(json);
+                                    var img = document.querySelector(".grid-item-img img");
+                                    img.src = json.ImgUrl;
+
+                                    var price = document.querySelector(".add-to-cart p");
+                                    price.innerText = "EUR" + Math.round(json.Price * 100) / 100;
+
+                                    var bts = document.querySelectorAll(".size button");
+                                    switch (json.Size) {
+                                        case 'S':
+                                            change_b_color(0);
+                                            break;
+                                        case 'M':
+                                            change_b_color(1);
+                                            break;
+                                        case 'L':
+                                            change_b_color(2);
+                                            break;
+                                    }
+
+                                    check_bool(0, json.Copyright);
+                                    check_bool(1, json.HighPrint);
+                                    check_bool(2, json.Templates);
+                                    check_bool(3, json.Editoral);
+
+                                }
+                            });
+                        }
+                    });
+               });
+        }
+        function check_bool(index, boolean) {
+            document.getElementsByClassName("var")[index].querySelector("i").className = boolean ? "ri-checkbox-line" : "ri-checkbox-blank-line";
+        }
+        function change_b_color(index)
+        {
+            for(let i = 0;i<3;i++)
+            {
+                if(i==index){bts[i].style.backgroundColor = "#009ec4"; bts[i].style.color = "white";}
+                else { bts[i].style.backgroundColor = "white"; bts[i].style.color = "#009ec4"; }
+                    
+            }
+        }
+            var ele = document.querySelector(".item a");
+            console.log(ele);
+            $(document).on('click', '.item a', function(){
+                $.ajax({
+                    type: "get",
+                    url: '@Url.Action("GetToken", "Account")',
+                    data: { },
+                    success: function (data) {
+                        console.log(data);
+                        $.ajax({
+                            type:"get",
+                            url: '/StockPhotoCollections/GetLightBox',
+                            dataType:'json',
+                            headers:
+                            {
+                                "Authorization": "Bearer " +JSON.stringify(data)
+                            },
+                            success:function(response)
+                            {
+                                alert(response);
+                            },
+                            error: function()
+                            {
+                                $.ajax({
+                                    type:'post',
+                                    url: '/Cart/LightBox',
+                                    success:function(data)
+                                    {
+                                        $(".lightbox").html(data);
+                                    }
+                                })
+                            }
+                        });
+                    }
+
+                });
+            });
+        }
+    </script>
+    
+    </body>
+</html>

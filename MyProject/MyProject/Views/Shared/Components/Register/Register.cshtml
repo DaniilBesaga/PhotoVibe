@@ -1,0 +1,83 @@
+﻿@model MyProject.ViewComponents.Register;
+<!DOCTYPE html>
+<html>
+<head>
+   <link href="~/css/Signing.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    @{
+        Layout = "~/Views/Account/Index.cshtml";
+    }
+    <div class="form">
+        <form asp-action="GetRegisterData" asp-controller="Account" method="post">
+                <div class="name">
+                    <div>
+                        <label asp-for="FirstName">First name<span style="color:red">*</span></label>
+                        <input asp-for="FirstName"/>
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="LastName">Last name<span style="color:red">*</span></label>
+                        <input asp-for="LastName" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <label asp-for="Industry">Industry<span style="color:red">*</span></label>
+                  <span asp-validation-for="Industry" class="text-danger"></span>
+            <select asp-for="Industry">
+                    <optgroup label="Agency">
+                        <option disabled selected style="display:none;"></option>
+                        <option>Marketing</option>
+                        <option>Design</option>
+                        <option>Communication</option>
+                        <option>Other</option>
+                    </optgroup>
+                    <optgroup label="Media">
+                        <option>Print</option>
+                        <option>Digital</option>
+                        <option>TV/Audio</option>
+                        <option>Other</option>
+                    </optgroup>
+                    <optgroup label="Non-profit">
+                        <option>Public</option>
+                        <option>Education</option>
+                        <option>Cultural</option>
+                        <option>Politics</option>
+                        <option>Other</option>
+                    </optgroup>
+                </select>
+                <label asp-for="Email">Email<span style="color:red">*</span></label>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="Password">Password<span style="color:red">*</span></label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="checkbox">
+                <input type="checkbox" asp-for="License" />
+                    <p>I have read and agree to the Terms of Service and the License Agreement</p>
+                    <span asp-validation-for="License" class="text-danger"></span>
+                </div>
+                <div class="checkbox">
+                <input type="checkbox" asp-for="Privacy" />
+                    <p>I have read and agree to the Privacy policy. </p>
+                    <span asp-validation-for="Privacy" class="text-danger"></span>
+                </div>
+                <input type="submit" value="Register" class="send" />
+                <div class="footer-license">
+                    <p>
+                        By Registering with Photocase, you accept our License agreement, Privacy policy (including Use of Cookies and Other Technologies) and Terms of use.
+                    </p>
+                </div>
+            </form>
+        </div>
+        <script>
+        document.querySelector(".links-l-r > a:first-of-type").style.color = "gray";
+        document.querySelector(".links-l-r > a:first-of-type").style.textDecoration = "none";
+        document.querySelector(".links-l-r > a:first-of-type").addEventListener("mouseover", function(){
+            document.querySelector(".links-l-r > a:first-of-type").style.textDecoration = "underline";
+        })
+        document.querySelector(".links-l-r > a:last-of-type").style.color = "#009ec4";
+
+        </script>
+</body>
+</html>

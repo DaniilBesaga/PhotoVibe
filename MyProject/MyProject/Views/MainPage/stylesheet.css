@@ -1,0 +1,43 @@
+﻿*
+{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+    list-style:none;
+    text-decoration:none;
+}
+
+@font-face 
+{
+    font-family:"Helvetica";
+    src: url("C:\Users\1\Desktop\C#\JavaScript\Fonts\Helvetica.ttf") format('ttf');
+}
+
+header
+{
+    display:flex;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 15px 10px 15px;
+}
+
+header > a > img
+{
+    display:block;
+
+}
+
+header > a > p:first-child
+{
+    font-size:25px;
+    font-family:'Great Vibes';
+}
+
+header > a > p:last-child
+{
+    font-family:'Lugrasimo';
+}

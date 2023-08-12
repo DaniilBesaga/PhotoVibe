@@ -1,0 +1,14 @@
+﻿<rewrite>
+	<rules>
+		<rule name="HttpToHttps" stopProcessing="true">
+			<match url="^Get|$Data" ignoreCase="true">
+				<conditions>
+					<add input="{HTTP_HOST}" pattern="localhost" negate="true">
+					</add>
+					<add input="{HTTPS}" pattern="^OFF$"></add>
+				</conditions>
+				<action type="Redirect" redirectType="Permanent" url="https://www.mywebsite.com/{R:0}"/>
+			</match>
+		</rule>
+	</rules>
+</rewrite>

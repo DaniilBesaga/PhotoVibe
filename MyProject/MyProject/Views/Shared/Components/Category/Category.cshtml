@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/MainPage.css" type="text/css" />
+</head>
+<body>
+    <ul class="navlist">
+        <li><a href="#">Photos</a></li>
+        <li><a href="/Prices">Prices</a></li>
+        <li>
+            <a href="/Help">Help</a>
+            <div class="help-phone">
+                <i class="ri-arrow-up-s-fill"></i>
+                <p>+380 - 98  0564592</p>
+            </div>
+        </li>
+        <li><a href="#">More</a></li>
+        <li><a href="/Cart"><i class="ri-shopping-cart-fill"><span class="number">@ViewBag.TotalCart</span></i></a></li>
+        @{
+            string buttonColor = TempData["Login"] as string;
+            string em = TempData["Email"] as string;
+            if (buttonColor == "green")
+            {
+                <li style="cursor:pointer;">
+                    <p><i class="ri-account-box-line"></i></p>
+                    <div class="sign-out">
+                        <p>Welcome<span>@em</span></p>
+                        <button style="cursor:pointer">Sign out</button>
+                    </div>
+                </li>
+            }
+            else if (buttonColor == "red")
+            {
+                <li><a href="/Account/Login" class="login">Log in</a></li>
+            }
+            else
+            {
+                <li><a href="/Account/Login" class="login">Log in</a></li>
+            }
+        }
+    </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var flag = true;
+        var l = document.querySelector(".navlist li:last-of-type");
+        console.log(l);
+        if(l!=null){
+            l.addEventListener("click", function () {
+            flag == flag ? true : false;
+            document.querySelector(".sign-out").style.display = flag == true ? "block" : "none";
+            flag = !flag;
+        });
+        }
+        var b = document.querySelector(".sign-out button");
+        if(b!=null){
+            b.addEventListener("click", function (){
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("BuyItems", "Cart")',
+                    data: {  },
+                    success: function (response) {
+                        var l = document.querySelector(".navlist li:last-of-type");
+                        l.innerHTML = "";
+                        var aElement = document.createElement("a");
+
+                        // Задать атрибуты href и class
+                        aElement.href = "/Account/Login";
+                        aElement.className = "login";
+
+                        // Добавить текст в элемент <a>
+                        aElement.textContent = "Log in";
+
+                        // Добавить элемент <a> в элемент <li>
+                        l.appendChild(aElement);
+                    }
+
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+@*@await Component.InvokeAsync("Events", new { showPrevious = Model.ShowPrevious, showUpcoming = Model.ShowUpcoming })*@

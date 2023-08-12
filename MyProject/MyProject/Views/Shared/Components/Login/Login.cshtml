@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/Signing.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    @{
+        Layout = "~/Views/Account/Index.cshtml";
+    }
+    <div class="form">
+        <form method="post" asp-action="GetLoginData" asp-controller="Account">
+            <label for="femail">Email or Username</label>
+            <input type="text" name="EmailOrUsername" required />
+            <span></span>
+            <div class="password">
+                <label for="fpassword">Password</label>
+                <input type="password" name="Password" required/>
+                <span></span>
+                <a>Forgot your password?</a>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" name="Remember"/>
+                <p>Remember me</p>
+            </div>
+            <input type="submit" value="Login" class="send"/>
+            <span class="timer"></span>
+        </form>
+        <div class="footer-info">
+            <div class="account-sign-up-link">
+                <p>No account?</p>
+                <a>Register now!</a>
+            </div>
+            <div class="footer-license">
+                <p>
+                    By signing in, you accept our License agreement, Privacy policy (including Use of Cookies and Other Technologies) and Terms of use.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var email = document.getElementsByName("EmailOrUsername")[0];
+        var data = '@ViewData["LoginError"]';
+        var pass = document.getElementsByName("Password")[0];
+        var rem = document.getElementsByName("Remember")[0];
+        var impdata = '@TempData["LoginEr"]';
+        if (data.includes("username") || data.includes("email")) {
+            document.querySelector("form span").innerText = data;
+        }
+        if (data.includes("password")) {
+            document.querySelector(".password span").innerText = data;
+        }
+        if(impdata.includes("exist")){
+            document.querySelector("form span").innerText = impdata;
+        }
+        if(impdata.includes("Incorrect"))
+        {
+            document.querySelector(".password span").innerText = impdata;
+        }
+        console.log(impdata);
+        if(impdata.includes("attempts"))
+        {
+            document.querySelector("form span").innerText = impdata;
+            document.querySelector(".send").disabled = true;
+            document.querySelector(".send").style.opacity = 0.7;
+            var timer = document.querySelector(".timer");
+            var seconds = 120;
+            countdown(seconds);
+        }
+        function countdown(seconds) {
+            var timer = setInterval(function () {
+                document.querySelector(".timer").innerText = seconds;
+                seconds--;
+
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    document.querySelector(".send").style.disabled = false;
+                    document.querySelector(".send").style.opacity = 1;
+                    document.querySelector(".timer").innerText = "";
+                }
+            }, 1000);
+        }
+
+        //document.getElementsByTagName("form")[0].addEventListener("submit", function(e)
+        //{
+        //    e.preventDefault();
+        //    var str = $(this).serialize();
+        //    $.ajax({
+        //        type:"post",
+        //        url:'/Account/GetLoginData',
+        //        data: {str:str},
+        //        success:function(response)
+        //        {
+        //            var link = document.getElementsByClassName("navlist")[0].getElementsByTagName("li")[5];
+        //            var icon = document.createElement("i");
+        //            icon.className = "ri-account-box-line";
+        //            link.innerHTML = "";
+        //            link.appendChild(icon);
+        //        }
+        //    });
+        //});
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("C:\Users\1\Desktop\C#\JavaScript\Fonts\Helvetica.ttf") format('ttf');
+}
+
+body {
+    background-image: url("https://getwallpapers.com/wallpaper/full/2/c/8/719234-full-size-beautiful-background-images-1920x1080-samsung-galaxy.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+   
+}
+
+.login-window
+{
+    margin:100px 30% 50px 30%;
+    background-color:white;
+}
+
+.links-l-r img
+{
+    position:absolute;
+    top:-80px;
+    left:100px;
+}
+
+.links-l-r
+{
+    position:absolute;
+    left:50%;
+    transform:translate(-50%, 100%);
+}
+
+.links-l-r > a:first-of-type, .links-l-r > a:last-of-type:hover
+{
+    font-size:30px;
+    color:#009ec4;
+    text-decoration:underline;
+}
+
+.links-l-r > a:last-of-type
+{
+    font-size:30px;
+    color:gray;
+}
+
+.links-l-r span
+{
+    font-size:20px;
+    color:gray;
+}
+
+.form
+{
+    margin-top:100px !important;
+    padding:10px 20px 20px 20px;
+}
+
+.form label
+{
+    font-weight:600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:19px;
+    display:block;
+    margin-top:15px;
+}
+
+.form input, select
+{
+    display:inline-block;
+    height:50px;
+    width:100%;
+    border-radius:0;
+    margin-top:10px;
+    font-size:20px;
+    padding-left:10px;
+    border:1px solid gray;
+}
+
+a
+{
+    cursor:pointer
+}
+
+.password > a
+{
+    float:right;
+    color:#009ec4;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.checkbox
+{
+    margin-top:10px;
+}
+
+.checkbox input
+{
+    display:inline-block;
+    height:15px;
+    width:15px;
+}
+
+.checkbox p
+{
+    display:inline-block;
+    margin-top:6px;
+    margin-left:15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.send
+{
+    width:100px !important;
+    color:#009ec4;
+    border:1px solid #009ec4 !important;
+    padding:0 !important;
+    background-color:white;
+    cursor:pointer;
+}
+
+.account-sign-up-link
+{
+    display:flex;
+}
+
+.footer-info > div, .footer-license
+{
+    margin-top:20px;
+}
+
+.footer-info a
+{
+    color:#009ec4;
+    font-size:13px;
+    margin-top:1px;
+    margin-left:6px;
+}
+
+.footer-info p, .footer-license p
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:12px;
+    color:gray;
+}
+
+.name
+{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:15px;
+}
+
+form span, .password span
+{
+    font-size:13px;
+    margin-top:3px;
+    color:red;
+}

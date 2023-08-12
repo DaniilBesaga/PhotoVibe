@@ -1,0 +1,228 @@
+﻿@model IEnumerable<MyProject.Models.StockPhotos>;
+@using System.Text.RegularExpressions;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lugrasimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap" rel="stylesheet">
+    <link href="~/css/MainPage.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+   
+    <section style="margin-top:150px;">
+        <div class="main-background">
+            <h1>Buy Stock Photos<br /> That Are <br />Shamelessly Nice</h1>
+            <div>
+                <input placeholder="Please enter search term here" />
+                <i class="ri-search-line" style="cursor:pointer;"></i>
+            </div>
+            <div class="search-bar">
+                <a>
+                    <p></p>
+                    <p></p>
+                </a>
+            </div>
+            <ul>
+                <li><a>Frequent searches</a></li>
+                <li><a>#equality</a></li>
+                <li><a>#summer</a></li>
+                <li><a>#climate</a></li>
+            </ul>
+            <button><i class="ri-shining-2-line"></i>View image prices</button>
+        </div>
+    </section>
+    <section class="stock-photos-text">
+        <p>Get Out Of The Mainstream And Buy Unique Royalty-Free Stock Photos !</p>
+        <p>Stock photos that show real people with real emotions. Images that represent reality in its diversity while matching your current project and budget. Agencies with aspirations, brands with brains, publishers with panache and anyone who wants to look different buy royalty-free images at Photocase.</p>
+    </section>
+    <section class="new-stock-imagery">
+        <p class="photo-header"><span>New Stock Imagery</span></p>
+        <div class="altruism">
+            <p>ALTRUISM<span> The Us</span></p>
+        </div>
+        <div class="two-photos-collection">
+            <a>
+                <div>
+                    <p>HEDONISM<span>The me</span></p>
+                </div>
+            </a>
+            <a>
+                <div>
+                    <p>BEST IN JUNE 2023<span>Favourite images from this month</span></p>
+                </div>
+            </a>
+        </div>
+        <div class="photo-info">
+            <div>
+                <p>Unique Images</p>
+                <p>Annoyed by boring stock photography and dull photo sites ? Looking for quality images that have not yet been used all over? This is exactly what Photocase offers.</p>
+            </div>
+            <div>
+                <p>Strong Selection</p>
+                <p>No one needs millions of almost identical stock images. Photocase is proud to have developed one of the strictest selection processes of all stock agencies.</p>
+            </div>
+            <div>
+                <p>Comfortable Handling</p>
+                <p>Next to great stock imagery we enable comfortable handling and a neat workflow. Use in social media included. Virtually all commercial uses included.</p>
+            </div>
+            <div>
+                <p>Easy Payment</p>
+                <p>Simply pay per download to get exactly what you want. Or take advantage of the attractive discounts and the comfort of Photocase Credit packages.</p>
+            </div>
+        </div>
+        <div class="newsletter-suggestion">
+            <div>
+                <p>Photocase Newsletter</p>
+                <p>Get the monthly newsletter full of inspiration. Check out the latest stock photos fresh from the picture desk, thematic galleries and occasional discounts.</p>
+            </div>
+            <button>
+                SIGN UP NOW
+            </button>
+        </div>
+    </section>
+    <section class="more-stock-photos">
+        <p class="photo-header"><span>More Stock Photo Collections</span></p>
+        <div class="two-photos-collection">
+            @foreach (var p in Model.Take(8))
+            {
+                string temp = p.MainText.ToLower();
+                temp = Regex.Replace(temp, @"\s+", "-");
+                <a href='@Url.Action("Index", "StockPhotoCollections", new{id = temp})'>
+                    <div style="background-image:url(@p.Url)">
+                        <p>@p.MainText<span>@p.SecondaryText</span></p>
+                    </div>
+                </a>
+            }
+        </div>
+    </section>
+    <section class="royalty-free">
+        <div>
+            <h2>Royalty-free stock photos from Photovibe</h2>
+            <p>
+                Authentic style, local content, high quality photos, fair prices and licensing conditions
+                as well as an uncomplicated search and<span>
+                    purchase process are actually reasons enough, but
+                    there are even more advantages:
+                </span>
+            </p>
+            <div>
+                <div>
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <p>Upload purchased images in social media without extra license.</p>
+                </div>
+                <div>
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <p>The transfer of image licenses to customers is permitted.</p>
+                </div>
+                <div>
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <p>Images can be used simultaneously by several colleagues.</p>
+                </div>
+                <div>
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <p>Images can be cleared for sensitive topics such as religion, politics, pharmaceuticals, illness, etc. on special request.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="not-for-free">
+        <div>
+            <p>#NotForFree – A Campaign Against Free <br />Content</p>
+            <p>Free images destroy the market and thus also stifle creativity, because Likes won’t pay the rent or the next round.</p>
+        </div>
+        <button>
+            JOIN NOW
+        </button>
+    </section>
+    <section class="more-stock-photos">
+        <p class="photo-header"><span>More Stock Photo Collections</span></p>
+        <div class="two-photos-collection">
+            @*<a>
+                <div>@Html.DisplayFor(p=>p.Url)
+                    <p>@Html.DisplayFor(p=>p.MainText)<span>@Html.DisplayFor(p=>p.SecondaryText)</span></p>
+                </div>
+            </a>*@
+            @foreach (var p in Model.Take(8))
+            {
+          @*  / stock - photo - colletions / @temp*@
+                string temp = p.MainText.ToLower();
+                temp = Regex.Replace(temp, @"\s+", "-");
+                <a href="@Url.Action("StockPhotoCollections/",  "StockPhotoCollections", new{id = temp})">
+                    <div style="background-image:url(@p.Url)">
+                        <p>@p.MainText<span>@p.SecondaryText</span></p>
+                    </div>
+                </a>
+            }
+        </div>
+        <div class="more-collections">
+            <p>Well? Did you find the right stock photo yet? More suggestions can be found in the carefully curated stock photo collections. Answers to other questions might be solved in the FAQ.</p>
+            <button id="myb">More Colletions</button>
+        </div>
+    </section>
+    <section>
+
+    </section>
+    <script>
+        var inp = document.querySelector(".main-background > div > input");
+        inp.addEventListener("focus", function()
+        {
+            $.ajax({
+                    type:"get",
+                    url:'/MainPage/GetSearch',
+                    data:{},
+                    success:function(data){
+                        var response = JSON.parse(data);
+                        for (let i = 0; i < Object.keys(response).length;i++)
+                        {
+                        console.log(document.querySelectorAll('.search-bar > a'));
+                        document.querySelectorAll('.search-bar > a')[i].querySelector("p:first-of-type").innerText = Object.keys(response)[i];
+                        document.querySelectorAll('.search-bar > a')[i].querySelector("p:last-of-type").innerText = "~" + Object.values(response)[i]
+                        +" Images";
+                        var link = document.createElement("a");
+                        var temp = Object.keys(response)[i].toLowerCase();
+                        temp = temp.replace(/\s+/g, '-');
+                        link.href = `/StockPhotoCollections/Index/${temp}`;
+
+                        var p1 = document.createElement('p');
+                        var p2 = document.createElement('p');
+                        link.appendChild(p1);
+                        link.appendChild(p2);
+                        document.querySelector(".search-bar").appendChild(link);
+                        }
+                    }
+            });
+        });
+        inp.addEventListener("input", function () {
+            document.querySelector(".search-bar").style.display = "block";
+            var ee = document.querySelectorAll(".search-bar > a > p:first-of-type");
+            var eee = document.querySelectorAll(".search-bar > a");
+            for (let i = 0; i < ee.length; i++) {
+                console.log(ee[i].innerText);
+                if (ee[i].innerText.toLowerCase().includes(inp.value.toLowerCase())) {
+                    eee[i].style.display = "block";
+                }
+                else {
+                    eee[i].style.display = "none";
+                }
+                //document.querySelector(".search-bar").style.height = "auto";
+            }
+            if (inp.value === '') {
+                var q = document.querySelectorAll(".search - bar > a > p: last - child");
+                document.querySelector(".search-bar").style.height = "100px";
+                for (let i = 0; i < ee.length; i++) {
+                    ee[i].style.display = "block";
+                    q[i].marginTop = "-15px";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

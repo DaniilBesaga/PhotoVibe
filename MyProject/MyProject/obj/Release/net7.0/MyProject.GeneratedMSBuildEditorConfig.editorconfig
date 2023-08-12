@@ -1,0 +1,105 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MyProject
+build_property.RootNamespace = MyProject
+build_property.ProjectDir = C:\Users\1\Desktop\C#\ASP NET\MyProject\MyProject\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\1\Desktop\C#\ASP NET\MyProject\MyProject
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Help/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVscFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/NotFound/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90Rm91bmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Prices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpY2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/Components/AddItem/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWRkSXRlbVxBZGRJdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/Components/AddToLightBox/AddToLightBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWRkVG9MaWdodEJveFxBZGRUb0xpZ2h0Qm94LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/Components/Category/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlcQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/Components/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/Components/Register/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmVnaXN0ZXJcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/_LayoutAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/StockPhotoCollections/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQaG90b0NvbGxlY3Rpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/MainPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblBhZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-a4odb1vstx
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/_CustomLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DdXN0b21MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-qdg7j04sev
+
+[C:/Users/1/Desktop/C\#/ASP NET/MyProject/MyProject/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-57hyyzs055

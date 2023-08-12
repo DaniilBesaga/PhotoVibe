@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px 10px 15px;
+    background-color:white;
+    width:100%;
+    animation:appear 1s forwards;
+}
+
+@keyframes appear
+{
+    from{
+        opacity:0;
+        height:0;
+    }
+    to
+    {
+        opacity:1;
+        height:auto;
+    }
+}
+
+header > a
+{
+    display:grid;
+    grid-template-columns:50px, 150px;
+    color:black;
+}
+
+header > a > figure {
+  display: flex;
+  align-items: center;
+}
+
+header > a > figure > img {
+    width:70px;
+    height:70px;
+    transform:rotate(30deg);
+}
+
+header > a > figure > figcaption > p:first-of-type {
+font-size: 55px;
+font-family: 'Great Vibes', cursive;
+position:relative;
+    top:5px;
+}
+
+header > a > figure > figcaption >p:last-child {
+    position:relative;
+    top:-5px;
+font-family: 'Lugrasimo';
+font-size:18px;
+}
+
+.navlist
+{
+    display:flex;
+    margin-right:10%;
+}
+
+.navlist > li
+{
+   margin-left:40px;
+   border-bottom:2px solid transparent
+}
+
+.navlist > li:not(li:last-of-type):hover
+{
+    border-bottom:2px solid lightblue;
+}
+
+.navlist > li > a, .navlist > li > p
+{
+    color:black;
+    font-size:20px;
+    font-family:Helvetica;
+}
+
+.help-phone
+{
+    position:absolute;
+    right:24%;
+    top:60px;
+}
+
+.help-phone > i
+{
+    color:darkgray;
+    position:relative;
+    top:10px;
+    left:42%;
+    font-size:20px;
+}
+
+.help-phone > p
+{
+    border-radius:20px;
+    background-color:darkgray;
+    padding:4px 7px 4px 7px;
+    font-size:12px;
+    font-weight:300;
+    font-family:Helvetica;
+    letter-spacing:0.9px;
+}
+
+.number
+{
+    border-radius:40%;
+    border:0px solid black;
+    background-color:greenyellow;
+    font-size:10px;
+    padding:2px;
+    /*display:none;*/
+}
+
+.sign-out
+{
+    position:absolute;
+    border:1px solid green;
+    padding:10px;
+    background:#26d4b1;
+    top:80px;
+    display:none;
+    cursor:pointer;
+}
+
+.sign-out span
+{
+    display:block;
+    font-size:13px;
+    color:green;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:gray;
+}
+
+.sign-out button
+{
+    display:block;
+    margin-top:10px;
+    padding:10px;
+    border:2px solid #009ec4;
+    background:white;
+    color:#009ec4;
+    font-size:13px;
+}
+
+.login {
+    border: 1px solid #26d4b1; 
+    color: #26d4b1; 
+    padding:10px;
+}
+
+.login:hover
+{
+        border-bottom:1px solid #26d4b1 !important;
+}

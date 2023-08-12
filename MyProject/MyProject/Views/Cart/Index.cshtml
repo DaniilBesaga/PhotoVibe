@@ -1,0 +1,107 @@
+﻿@model IEnumerable<MyProject.Models.Item>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="~/css/cart.css" type="text/css" rel="stylesheet" runat="server" media="screen"/>
+    </head>
+    <body>
+    <section class="cart">
+        <h1>Cart</h1>
+        <div>
+
+            <div class="cart-table">
+
+                <div style="width:600px;">
+                    <div style="margin-left:10px">
+                        <input type="checkbox" />
+                        <p>Your items:<span>@ViewBag.TotalCart</span></p>
+                    </div>
+                    @{
+                        if(Model!=null)
+                        {
+                            foreach (var i in Model)
+                            {
+                                <div class="product">
+                                    <input type="checkbox" style="border-radius:10px" class="chec" />
+                                    <img src="@i.ImgUrl" />
+                                    <div>
+                                        <p>License for photo @i.Id</p>
+                                        <p>@i.Size</p>
+                                        <p>Basic Licence 6.0</p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+                @{
+                     <div style="width: 200px; border-left:0;display:block;">
+                            <p>Options</p>
+                        @{
+                            if(Model!=null)
+                            {
+                                foreach (var i in Model)
+                                {
+                                    <div class="options">
+                                        <div>
+                                            <i class="ri-pencil-line"></i>
+                                            <i class="ri-delete-bin-6-line"></i>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                        </div>
+
+                        <div style="width: 200px;display:inline-block">
+                            <p>Price</p>
+                        @{
+                            if(Model!=null)
+                            {
+                                foreach (var i in Model)
+                                {
+                                    <div class="price">
+                                        <p>EUR @i.Price</p>
+                                    </div>
+                                }
+                            }
+                        }
+                        </div>
+                  }
+                    </div>
+
+            <div class="checkout">
+                <p>Total</p>
+                <p>@TempData["TotalPrice"]</p>
+                <button disabled>Checkout</button>
+                <div>
+                    <p>All prices incl. VAT.</p>
+                    <a>Redeem voucher code?</a>
+                    <a>Purchase cart with Credits?</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        var b = document.querySelector(".checkout button");
+        if (document.querySelector(".checkout p:nth-of-type(2)").textContent!="")
+        {
+            b.disabled = false;
+            b.addEventListener("click", function(){
+                $.ajax({
+                    type:"post",
+                    url:'/Cart/BuyItems',
+                    success:function(response)
+                    {
+                        alert('Thank you for buying!');
+                        if (response.redirectToAction) {
+                            window.location.href = response.redirectToAction;
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+    </body>
+</html>

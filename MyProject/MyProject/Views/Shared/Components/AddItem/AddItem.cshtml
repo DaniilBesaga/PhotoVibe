@@ -1,0 +1,99 @@
+﻿@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using Microsoft.AspNetCore.Mvc;
+@using MyProject.Extensions;
+@using Microsoft.AspNetCore.Http
+
+<body>
+    <div class="overlay-product">
+        <div class="overlay-product-info">
+            <div class="grid-item-img" style="margin-right:20px">
+                <img>
+                <div>
+                    <a>
+                        <i class="ri-pushpin-line" style="text-align:center;"></i>
+                        <p>
+                            Add to Lightbox
+                        </p>
+                    </a>
+                    <a>
+                        <i class="ri-image-line" style="left:35%"></i>
+                        <p>
+                            Draft version
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid-item-info">
+                <div>
+                    <p>Buy</p>
+                    <p>Details</p>
+                </div>
+
+                <div>
+
+                    <div class="size">
+                        <p>Size</p>
+                        <div>
+                            <button>S</button>
+                            <button>M</button>
+                            <button>L</button>
+                        </div>
+                        <p>1095 x 731px, 72dpi</p>
+                        <p>Suitable for electronic media from thumbnail to hero shot.</p>
+                    </div>
+
+                    <div class="extras">
+                        <p>Add extras<span><i class="ri-arrow-drop-down-line"></i></span></p>
+                        <div class="var">
+                            <i class="ri-checkbox-blank-line" style="display:inline-block"></i>
+                            <div class="var-title">
+                                <p>No Proof of Copyright</p>
+                                <p>Enables the use of the image without the otherwise necessary proof <br />of copyright (Artist / Photocase).</p>
+                            </div>
+                        </div>
+                        <div class="var">
+                            <i class="ri-checkbox-blank-line" style="display:inline-block; top:-10px"></i>
+                            <div class="var-title">
+                                <p>High Print Runs</p>
+                                <p>Allows the use of the photo in print total of more than 500,000 copies.</p>
+                            </div>
+                        </div>
+                        <div class="var">
+                            <i class="ri-checkbox-blank-line" style="display:inline-block"></i>
+                            <div class="var-title">
+                                <p>Merchandise and Templates</p>
+                                <p>Allows the use of the photo in templates and as merchandise for resale, such <br />as posters, mugs or T-shirts.</p>
+                            </div>
+                        </div>
+                        <div class="var">
+                            <i class="ri-checkbox-blank-line" style="display:inline-block"></i>
+                            <div class="var-title">
+                                <p>Editorial Purposes</p>
+                                <p>Photo usage as part of editorial reporting in newspapers, magazines etc.<br /> with 20% discount.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="licensee">Licensee: <span>Me</span> <span><i class="ri-pencil-line"></i></span></p>
+                    <p class="basic-">
+                        When purchasing this photo you automatically get our <a>Basic Licence</a> which allows you to<br />
+                        use this photo for web, print, press, social media and more.
+                    </p>
+                    <div class="add-to-cart">
+                        <button>Add to cart</button>
+                        <p>
+                            </ p >
+                        <div>
+                            <button>Pay with PayPal</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="~/js/AddItem.js" type="text/javascript">
+
+</script>
+@*@await Component.InvokeAsync("Events", new { showPrevious = Model.ShowPrevious, showUpcoming = Model.ShowUpcoming })*@
